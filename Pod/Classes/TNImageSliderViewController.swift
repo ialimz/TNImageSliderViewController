@@ -244,11 +244,11 @@ public class TNImageSliderViewController: UIViewController, UICollectionViewData
         view.addConstraints([centerXConstraint, bottomConstraint])
         
     }
-    
+    var timer : NSTimer!
     private func setupAutoSliderIfNeeded() {
         
         if options.autoSlideIntervalInSeconds > 0 {
-            NSTimer.scheduledTimerWithTimeInterval(options.autoSlideIntervalInSeconds, target: self, selector: #selector(TNImageSliderViewController.timerDidFire(_:)), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(options.autoSlideIntervalInSeconds, target: self, selector: Selector("timerDidFire"), userInfo: nil, repeats: true)
         }
         
     }
